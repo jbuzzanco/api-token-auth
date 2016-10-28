@@ -1,10 +1,15 @@
-#!/bin/bash
-
-#curl "http://localhost:3000/sign-up" \
-curl "http://httpbin.org/post" \
+# #!/bin/bash
+#
+# API="http://httpbin.org"
+# URL_PATH="/post"
+API="http://localhost:4741"
+URL_PATH="/sign-up"
+curl "${API}${URL_PATH}" \
   --include \
   --request POST \
-  --data-urlencode ""
+  --data-urlencode "credentials[email]=${EMAIL}" \
+  --data-urlencode "credentials[password]=${PASSWORD}" \
+  --data-urlencode "credentials[password_confirmation]=${PASSWORD}"
 
 # --header "Content-Type: application/x-www-form-urlencoded"
 

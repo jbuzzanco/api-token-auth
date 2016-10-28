@@ -1,9 +1,15 @@
 #!/bin/bash
 
 #curl "http://localhost:3000/sign-in" \
-curl "http://httpbin.org/post" \
+API="http://localhost:4741"
+URL_PATH="/sign-in"
+curl "${API}${URL_PATH}" \
   --include \
   --request POST \
-  --data-urlencode ""
+  --header "Content-Type: application/json" \
+  --data-urlencode "credentials[email]=${EMAIL}" \
+  --data-urlencode "credentials[password]=${PASSWORD}"
+
+# data output from curl doesn't have a trailing newline
 
 echo
